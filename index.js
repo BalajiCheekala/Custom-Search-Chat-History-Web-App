@@ -9,9 +9,10 @@ const cheerio = require("cheerio");
 const Chat = require("./model/Chat.js");
 const User = require("./model/cheeksUsers.js");
 const session = require("express-session");
+require("dotenv").config();
 
-const API_KEY = "AIzaSyCqpBqJLQQnT2mdOJiF8B6Rztysshwv41w"; 
-const CX = "6695b452c3d64431d";     
+const API_KEY = process.env.API_KEY;
+const CX = process.env.CX_ID;
 
 app.use(session({
   secret: "your_secret_key", 
