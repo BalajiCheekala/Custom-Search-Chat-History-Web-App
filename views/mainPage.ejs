@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="/mainPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="history">
+            <h1>Browsing History</h1>
+            <form method="get" action="/history/<%= userId %>">
+                <button class="showHistory">Show History</button>
+            </form>
+            <% if (historyCheck) { %>
+                <% for (let curr of history.slice().reverse()) { %>
+                    <form method="get" action="/history/<%= userId %>/<%= curr._id %>">
+                        <button class="historyDataButton"><%= curr.title %></button>
+                    </form>
+                <% } %>
+            <% } %>
+
+        </div>
+    
+        <div class="browsing">
+            <div class="browsingHeader">
+                <h1 class="siteTitle">Cheeks Home Page</h1>
+                
+                <div class="profileMenu">
+                    <button class="profileBtn">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                    <div class="dropdown">
+                        <p><%= userId %></p>
+                        <form action="/<%= userId %>/logout" method="get">
+                            <button type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <% if (check) { %>
+                <p class="queryFromUser"><%= query %></p>
+                <p class="msgFromServer"><%- fullinfo %></p>
+            <% } %>
+
+            <div class="searching">
+                <h1 class="helpQuote">What can I help with?</h1>
+                <form action="/<%=userId%>/search" method="GET">
+                    <input type="text" name="q" placeholder="Search anything">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const profileBtn = document.querySelector(".profileBtn");
+        const dropdown = document.querySelector(".dropdown");
+
+        profileBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+        document.addEventListener("click", () => {
+            dropdown.style.display = "none";
+        });
+    });
+</script>
+
+</html>

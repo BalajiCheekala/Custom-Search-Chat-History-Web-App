@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+</head>
+<body>
+    <h5>Searched Data</h5>
+    <% for(let data of results){ %>
+        <p>Title: <%= data.title %></p>
+        <p>Snippet: <%= data.snippet %></p>
+        <p>URL: <a href="<%= data.link %>" target="_blank"><%= data.link %></a></p>
+        <% if(data.image){ %>
+            <p>Image: <br><img src="<%= data.image %>" alt="image" width="200"></p>
+        <% } %>
+        <hr>
+    <% } %>
+</body>
+</html>

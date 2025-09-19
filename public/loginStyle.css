@@ -1,0 +1,58 @@
+body {
+    background-color: #37353E;
+    color: white;
+    height: 100vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;    
+    margin: 0; 
+}
+
+.loginBody {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    gap: 20px; 
+}
+.loginEmail{
+    border-radius: 10px;
+    height: 30px;
+    padding: 5px;
+    background-color: #D3DAD9;
+    color: black;
+}
+.loginPassword{
+    border-radius: 10px;
+    color:black;
+    height: 30px;
+    padding: 5px;
+    background-color: #D3DAD9;
+
+}
+.loginButton{
+    border-radius: 10px;
+    height: 25px;
+    width: 50px; 
+    background-color: #D3DAD9;
+}
+.loginForgot{
+    display: flex;
+    align-items: row;
+    justify-content: center;
+}
+.loginSignup{
+     border-radius: 10px;
+    height: 25px;
+    background-color: #D3DAD9;
+    margin: 10px;
+}
+
+.loginForgotPassword{
+    border-radius: 10px;
+    height: 25px;
+    background-color: #D3DAD9;
+    margin: 10px;
+    margin-top: 5px;
+}
+
+

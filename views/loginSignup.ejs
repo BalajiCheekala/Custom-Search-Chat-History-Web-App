@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/loginSignup.css">
+    <title>loginSignup</title>
+</head>
+<body>
+   
+    <div class="signupContainer">
+         <h3>Welcome to Cheeks</h3>
+        <div class="signupform">
+            <form method ="post" action="/loginSignup" onsubmit="return verifyPassword()">
+                <input name="email" type="email" placeholder="Enter your email" id="loginEmail">
+                <input name="password" type="password" placeholder="Enter your password" id="password">
+                <input name="confirmPassword" type="password" placeholder="Re - Enter your password" id="confirmPassword">
+                <button>signup</button>
+            </form>
+        </div>
+        <div>
+            <p id="errorMsg1" style="color: red; display: none;">Enter Passowrd</p>
+        </div>
+        <div>
+            <p id="errorMsg" style="color: red; display: none;">Password MisMatches</p>
+        </div>
+        <div>
+            <p id="errorMsg2" style="color: red; display: none;">Enter Valid Email</p>
+        </div>
+    </div>
+</body>
+    <script>
+        function verifyPassword(){
+            const email = document.getElementById("loginEmail").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
+            const errorMsg1 = document.getElementById("errorMsg1");
+             const errorMsg2 = document.getElementById("errorMsg2");
+
+            if(email.length === 0){
+                errorMsg2.style.display = "block";
+                return false;
+            }
+            if(password.length === 0){
+                errorMsg1.style.display = "block";
+                return false;
+            }
+            if(password != confirmPassword){
+                 errorMsg.style.display = "block";
+                 return false;
+            }else{
+                return true;
+            }
+        }
+        
+        
+    </script>
+
+</html>

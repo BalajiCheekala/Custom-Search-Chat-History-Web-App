@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/loginForgotPassword.css">
+    <title>Login Forgot Password Validation</title>
+
+</head>
+<body>
+
+    <form method="get" action="/loginPasswordChange/<%= email %>" onsubmit="return verifylength()">
+        <input type="number" class="loginForgotOtp" placeholder="Enter OTP" name="otp">
+        <button class="loginForgotOtpButton">Verify OTP</button>
+        <div id="ErrorMsg" style="display: none; color: red; margin-top: 5px;">
+                    <p>Enter Valid OTP</p>
+        </div>
+    </form>
+    <script>
+        function verifylength(){
+            const otp = document.getElementsByClassName("loginForgotOtp")[0].value.trim();
+            const errorMsg = document.getElementById("ErrorMsg");
+
+            if(otp.length < 4 ){
+                errorMsg.style.display = "block";
+                return false;
+            }else{
+                errorMsg.style.display = "none";
+                return true
+            }
+        }
+        
+    </script>
+
+
+    
+</body>
+</html>
